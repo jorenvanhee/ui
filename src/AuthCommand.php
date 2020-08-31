@@ -129,10 +129,11 @@ class AuthCommand extends Command
             FILE_APPEND
         );
 
-        copy(
-            __DIR__.'/../stubs/migrations/2014_10_12_100000_create_password_resets_table.php',
-            base_path('database/migrations/2014_10_12_100000_create_password_resets_table.php')
-        );
+        if (! file_exists(
+            $destination = base_path('database/migrations/2014_10_12_100000_create_password_resets_table.php')
+        )) {
+            copy(__DIR__ . '/../stubs/migrations/2014_10_12_100000_create_password_resets_table.php', $destination);
+        }
     }
 
     /**
