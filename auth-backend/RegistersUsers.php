@@ -40,7 +40,7 @@ trait RegistersUsers
         }
 
         return $request->wantsJson()
-                    ? new Response('', 201)
+                    ? new Response('{}', 201)
                     : redirect($this->redirectPath());
     }
 
